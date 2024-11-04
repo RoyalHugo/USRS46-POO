@@ -17,8 +17,7 @@ public class Piece
 
     public override string ToString()
     {
-		string ToString = String.Format("Nom: {0}", this.Nom);
-		ToString += String.Format("Superficie: {0}m²", this.Superficie);
+		string ToString = String.Format("La pièce {0} fait {1}m²\n", this.Nom, this.Superficie);
 		return ToString;
     }
 }

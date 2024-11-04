@@ -7,16 +7,29 @@ namespace POO
     {
         public int NbPieces;
         public bool Jardin;
+        public Piece[] Pieces;
+        public static readonly List<string> NomsPieces = new List<string>() { "Cuisine", "Salle de bain", "Chambre", "Salon", "Garage", "Bureau", "Terrasse" };
 
         public Maison(string adresse, float superficie, int nbPieces, bool jardin) : base(adresse, superficie)
         {
             NbPieces = nbPieces;
             Jardin = jardin;
+            Pieces = new Piece[nbPieces];
+
+            Random rnd = new Random();
+
+            for (int i = 0; i < nbPieces; i++) 
+            {
+                Pieces[i] = new Piece(rnd.Next(10,30), NomsPieces[rnd.Next(NomsPieces.Count)]);
+                Superficie += Pieces[i].Superficie;
+            }
         }
 
         public override string ToString()
         {
             string toString = String.Format("Nombre de pièces = {0}\n", this.NbPieces);
+            for (int i = 0; i < this.NbPieces; i++)
+                toString += String.Format("- {0}\n", this.Pieces[i]);
             toString += String.Format("Présence d'un jardin = {0}\n", this.Jardin ? "Oui" : "Non");
             toString += String.Format("> VALEUR = {0}$\n", this.EvaluationValeur());
             return toString;
