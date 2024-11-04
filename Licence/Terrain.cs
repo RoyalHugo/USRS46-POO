@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace POO
 {
@@ -30,9 +31,12 @@ namespace POO
         }
         public float EvaluationValeur()
         {
-            int valeur = 1500;
+            int valeur = 3000;
             if (this.Riviere) { valeur += 500; };
+            valeur += this.NbCotesCloture * 80;
 
+            if (Regex.IsMatch(this.Adresse, @"\bParis\b")) { valeur += 8000; }
+            else if (Regex.IsMatch(this.Adresse, @"\bLyon\b")) { valeur += 2000; }
 
             return this.Superficie * valeur;
 
