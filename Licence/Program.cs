@@ -20,6 +20,9 @@ namespace POO
             {
                 Console.WriteLine(bien);
             }
+
+            Proprietaire Mark = new Proprietaire("Malaka", "Mark", new Bien[] { UneMaison, terrain1});
+            Console.WriteLine(Mark);
         }
     }
 }
