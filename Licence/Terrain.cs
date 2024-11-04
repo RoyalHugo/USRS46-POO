@@ -25,7 +25,7 @@ namespace POO
             string toString = String.Format("Adresse: {0}\n", this.Adresse);
             toString += String.Format("Superficie: {0}m²\n", this.Superficie);
             toString += String.Format("Nombre de clotures: {0}\n", this.NbCotesCloture);
-            toString += String.Format("Rivière?: {0}", this.Riviere ? "Oui" : "Non");
+            toString += String.Format("Rivière?: {0}\n", this.Riviere ? "Oui" : "Non");
             toString += String.Format("## VALEUR = {0}$\n", this.EvaluationValeur());
             return toString;
         }
